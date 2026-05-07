@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SolarVision - Lunettes de Soleil Premium</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+<div class="nav-container">
+<a href="#" class="logo">SolarVision</a>
+
+<nav>
+<ul class="nav-menu">
+<li><a href="#" class="nav-link">Accueil</a></li>
+<li><a href="#customization" class="nav-link">Personnaliser</a></li>
+<li><a href="#products" class="nav-link">Lunettes de Soleil</a></li>
+<li><a href="#" class="nav-link">Lunettes de Vue</a></li>
+<li><a href="#" class="nav-link">Promos</a></li>
+</ul>
+</nav>
+
+<div class="nav-actions">
+<div class="cart-icon" onclick="toggleCart()">
+🛒
+<span class="cart-count" id="cart-count">0</span>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+<div class="hero-content">
+<h1>Créez Vos Lunettes</h1>
+<p>Personnalisez vos lunettes de soleil et ajoutez une gravure gratuite</p>
+
+<a href="#customization" class="cta-button">
+Personnaliser
+</a>
+</div>
+</section>
+
+<!-- Customization -->
+<section class="customization" id="customization">
+
+<div class="customization-container">
+
+<h2 class="section-title">Créez les Vôtres</h2>
+
+<p class="section-subtitle">
+Choisissez votre modèle
+</p>
+
+<div class="customization-grid">
+
+<!-- Options -->
+<div class="customization-options">
+
+<!-- Model -->
+<div class="option-category">
+
+<h3 class="option-title">Modèle</h3>
+
+<div class="option-grid">
+
+<div class="option-item active"
+data-model="aviator"
+onclick="selectModel(this, 'aviator')">
+
+<span class="icon">🕶️</span>
+<span class="name">Aviator Classic</span>
+
+</div>
+
+<div class="option-item"
+data-model="clubmaster"
+onclick="selectModel(this, 'clubmaster')">
+
+<span class="icon">🕶️</span>
+<span class="name">Clubmaster Classic</span>
+
+</div>
+
+<div class="option-item"
+data-model="wayfarer"
+onclick="selectModel(this, 'wayfarer')">
+
+<span class="icon">🕶️</span>
+<span class="name">New Wayfarer</span>
+
+</div>
+
+</div>
+</div>
+
+<!-- Color -->
+<div class="option-category">
+
+<h3 class="option-title">Couleur</h3>
+
+<div class="option-grid">
+
+<div class="option-item active"
+onclick="selectColor(this, 'black')">
+
+<span class="icon">⚫</span>
+<span class="name">Noir</span>
+
+</div>
+
+<div class="option-item"
+onclick="selectColor(this, 'gold')">
+
+<span class="icon">🟡</span>
+<span class="name">Or</span>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- Preview -->
+<div class="preview-container">
+
+<div class="sunglasses-preview aviator"
+id="sunglasses-preview">
+🕶️
+</div>
+
+<div class="preview-details">
+
+<h3 class="preview-name" id="preview-name">
+SolarVision Aviator Classic
+</h3>
+
+<p class="preview-price" id="preview-price">
+25,000 DA
+</p>
+
+<button class="add-to-cart-custom"
+onclick="addCustomToCart()">
+
+Ajouter au Panier
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Products -->
+<section class="products" id="products">
+
+<div class="products-container">
+
+<h2 class="section-title">
+Collection Lunettes de Soleil
+</h2>
+
+<p class="section-subtitle">
+Découvrez notre sélection premium
+</p>
+
+<div class="products-grid">
+
+<!-- Product -->
+<div class="product-card">
+
+<div class="product-image">🕶️</div>
+
+<div class="product-info">
+
+<h3 class="product-title">
+SolarVision Aviator Classic
+</h3>
+
+<p class="product-description">
+Lunettes iconiques avec verres polarisés.
+</p>
+
+<div class="product-price">
+25,000 DA
+</div>
+
+<button class="add-to-cart"
+onclick="addToCart('SolarVision Aviator Classic', 25000)">
+
+Ajouter au Panier
+
+</button>
+
+</div>
+</div>
+
+<!-- Product -->
+<div class="product-card">
+
+<div class="product-image">🕶️</div>
+
+<div class="product-info">
+
+<h3 class="product-title">
+SolarVision Clubmaster
+</h3>
+
+<p class="product-description">
+Design vintage premium.
+</p>
+
+<div class="product-price">
+28,000 DA
+</div>
+
+<button class="add-to-cart"
+onclick="addToCart('SolarVision Clubmaster', 28000)">
+
+Ajouter au Panier
+
+</button>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Cart -->
+<div class="cart-sidebar" id="cart-sidebar">
+
+<div class="cart-header">
+
+<h2>Panier</h2>
+
+<button class="close-cart"
+onclick="toggleCart()">
+
+×
+
+</button>
+
+</div>
+
+<div class="cart-items" id="cart-items">
+
+<p class="empty-cart">
+Votre panier est vide
+</p>
+
+</div>
+
+<div class="cart-total"
+id="cart-total"
+style="display:none;">
+
+Total: 0 DA
+
+</div>
+
+<button class="checkout-btn"
+id="checkout-btn"
+style="display:none;"
+onclick="checkout()">
+
+Commander
+
+</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
